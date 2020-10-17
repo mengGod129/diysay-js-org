@@ -77,27 +77,16 @@
 	  fixed: true,
       /*自动播放，默认值为false，true为开启自动播放*/
       autoplay: false,
-      showlrc: true,
-      /*lrc歌词显示方式,默认值为1,HTML显示方式，2为JavaScript字符串显示方式，3为lrc文件加载显示方式*/
-      lrcType: 3,
-      /*主题颜色*/
-      theme: '#00b5ad',
-      /*歌曲集合列表*/
-      audio:[
-          {
-              /*歌名*/
-              title: '爱你没差',
-              /*作者*/
-              author: '周杰伦',
-              /*歌曲*/
-              url: 'https://m8.music.126.net/20201017183108/9c5e43a79e4cb4684dab3c8324b4fb53/ymusic/a431/7111/e8bb/aea41c7c0a5c0591bc49602a9791c6f9.mp3',
-              /*音乐专辑图片*/
-              pic: 'images/爱你没差.jpg',
-              /*歌词*/
-              lrc: 'lrc/ainimeicha.lrc'
-          }
-      ]
-  });
+      mutex: true,
+	  lrcType: 3,
+	});
+	$.ajax({
+	  // 你的歌单id
+	  url: 'https://api.i-meto.com/meting/api?server=netease&type=playlist&id=29273806',
+	  success: function (list) {
+		ap.list.add(list);
+	  }
+	});
 </script>
 
 </html>
